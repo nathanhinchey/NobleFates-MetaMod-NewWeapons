@@ -1,0 +1,242 @@
+
+// Stone Axe Bit Slots
+{
+    id Oct.Items.Weapons.Axe.Wood.Slot.Handle
+    type InstancedItemBitSlot
+    name = Handle
+}
+{
+    id Oct.Items.Weapons.Axe.Wood.Slot.Bindings
+    type InstancedItemBitSlot
+    name = Bindings
+    chanceFrom = .75
+    chanceTo = .75
+}
+{
+    id Oct.Items.Weapons.Axe.Wood.Slot.Head
+    type InstancedItemBitSlot
+    name = Head
+}
+
+// Handles
+{
+    abstract
+    id Oct.Items.Weapons.Axe.Wood.Handle
+    type InstancedItemBit
+    slot = <Oct.Items.Weapons.Axe.Wood.Slot.Handle>
+    substances =
+    [
+        <Oct.Items.Substances.Wood>
+    ]
+    inlays =
+    [
+        <Oct.Items.BitInlays.Base>
+    ]
+}
+{
+    id Oct.Items.Weapons.Axe.Wood.Handle.Primitive
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.Axe.Wood.Handle
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Stone/AxeHandle/stoneAxe_handle_primitive.fbx
+        Name = Primitive
+        behavior = InstancedItemBitBehavior
+    }
+}
+{
+    id Oct.Items.Weapons.Axe.Wood.Handle.Standard
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.Axe.Wood.Handle
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Stone/AxeHandle/stoneAxe_handle_standard.fbx
+        Name = Standard
+        behavior = InstancedItemBitBehavior
+    }
+}
+
+// Bindings
+{
+    abstract
+    id Oct.Items.Weapons.Axe.Wood.Bindings
+    type InstancedItemBit
+    slot = <Oct.Items.Weapons.Axe.Wood.Slot.Bindings>
+    substances =
+    [
+        <Oct.Items.Substances.Leather>
+    ]
+    inlays =
+    [
+        <Oct.Items.BitInlays.Base>
+    ]
+}
+{
+    id Oct.Items.Weapons.Axe.Wood.Bindings.Primitive
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.Axe.Wood.Bindings
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Stone/AxeBindings/stoneAxe_bindings_primitive.fbx
+        Name = Primitive
+        behavior = InstancedItemBitBehavior
+    }
+}
+
+// Heads
+{
+    abstract
+    id Oct.Items.Weapons.Axe.Wood.Head
+    type InstancedItemBit
+    slot = <Oct.Items.Weapons.Axe.Wood.Slot.Head>
+    substances =
+    [
+        <Oct.Items.Substances.Wood>
+    ]
+    inlays =
+    [
+        <Oct.Items.BitInlays.Square.PartialMoon>
+		<Oct.Items.BitInlays.Square.Quad>
+		<Oct.Items.BitInlays.Square.Spiral>
+		<Oct.Items.BitInlays.Square.TriFace>
+		<Oct.Items.BitInlays.Square.TriLine>
+		<Oct.Items.BitInlays.Square.TriLineStraight>
+		<Oct.Items.BitInlays.Square.TwinDiamond>
+		<Oct.Items.BitInlays.Square.Twist>
+		<Oct.Items.BitInlays.Square.X>
+    ]
+}
+{
+    id Oct.Items.Weapons.Axe.Wood.Head.Primitive
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.Axe.Wood.Head
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Stone/AxeHead/stoneAxe_head_primitive.fbx
+        Name = Primitive
+        behavior = InstancedItemBitBehavior
+    }
+}
+{
+    id Oct.Items.Weapons.Axe.Wood.Head.Standard
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.Axe.Wood.Head
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Stone/AxeHead/stoneAxe_head_standard.fbx
+        Name = Standard
+        behavior = InstancedItemBitBehavior
+    }
+}
+{
+    id Oct.Items.Weapons.Axe.Wood.Head.Hefty
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.Axe.Wood.Head
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Stone/AxeHead/stoneAxe_head_hefty.fbx
+        Name = Hefty
+        behavior = InstancedItemBitBehavior
+    }
+}
+
+// Wood Axe
+{
+	id Oct.Items.Weapons.Axe.Wood
+	type WeaponItemType
+	inherit Oct.Items.Weapons.Axe
+    inherit Oct.Items.Weapons.Wood
+
+	name = Wood Axe
+    pluralName = Wood Axes
+    buffScale = 1
+
+    bitSlots =
+    [
+        <Oct.Items.Weapons.Axe.Wood.Slot.Handle>
+        <Oct.Items.Weapons.Axe.Wood.Slot.Bindings>
+        <Oct.Items.Weapons.Axe.Wood.Slot.Head>
+    ]
+
+    autonomousPerMember = 1
+
+	stats =
+	[
+		{
+			type InstancedItemStat
+			name = Damage
+			formula = QualityHalfDurability
+			min = 1
+			max = 4
+		}
+		{
+			type InstancedItemStat
+			name = Value
+			formula = QualityQualityHalfDurability
+			min = 1
+			max = 12
+		}
+	]
+
+	prefab =
+	{
+		type Prefab
+		path = /Art/Items/Stone/Axe/StoneAxe.fbx
+		name = Axe Item
+        behavior = InstancedItemBehavior
+	}
+
+	salvageAt = <Oct.Props.CraftingTable>
+	salvage =
+	[
+		{
+			type ExplicitItemSalvageComponent
+			itemType = <Oct.Items.Stackable.Wood>
+			count = 3
+		}
+	]
+}
+{
+	id Oct.Items.Recipes.Axe.Wood
+	type ItemRecipe
+
+	type = <Oct.Items.Weapons.Axe.Wood>
+	commandType = CraftItemCommand
+	progressMultiplier = .3
+	researchEntry = <Oct.Research.Smithing.Axe.Wood>
+	craftingLoop = StoneCraftingLoop
+	qualityDifficulty = .6
+    skillCurve = .5
+
+    craftAt =
+    [
+        <Oct.Props.CraftingTable>
+    ]
+
+	ingredients =
+	[
+		{
+			type ItemRecipeIngredient
+			filter = <Oct.Items.Stackable.Wood>
+			count = 10
+		}
+	]
+}
+
+// Research
+{
+	id Oct.Research.Smithing.Axe.Wood
+	type ResearchEntry
+    inherit Oct.Research.Crafting.Base
+
+	priority = 4
+	name = Wood Axes
+	prerequisite = <Oct.Research.Smithing>
+    tooltipProvider = <Oct.Items.Recipes.Axe.Wood>
+}

@@ -1,0 +1,300 @@
+// Custom Weapon: <% material %> <% name %>
+// Made with MetaMod-NewWeapons (URL goes here)
+// <%= Name %> Bit Slots
+{
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Slot.Grip
+    type InstancedItemBitSlot
+    name = Grip
+    minQuality = <% minQuality %>
+    chanceFrom = <% chanceFrom %>
+    chanceTo = <% chanceTo %>
+}
+{
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Slot.Handle
+    type InstancedItemBitSlot
+    name = Handle
+}
+{
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Slot.Head
+    type InstancedItemBitSlot
+    name = Head
+}
+
+// Grips
+{
+    abstract
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Grip
+    type InstancedItemBit
+    slot = <Oct.Items.Weapons.<% name %>.<% materialCategory %>.Slot.Grip>
+    substances =
+    [
+        {
+            id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Grip.Leather
+            type InstancedItemSubstance
+            inherit Oct.Items.Substances.Leather
+            chanceFrom = 100
+            chanceTo = 100
+        }
+    ]
+    inlays =
+    [
+        <Oct.Items.BitInlays.Base>
+    ]
+}
+{
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Grip.Hudson
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.<% name %>.<% materialCategory %>.Grip
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Metal/AxeGrip/metalAxe_grip_Hudson.fbx
+        Name = Hudson
+        behavior = InstancedItemBitBehavior
+    }
+}
+{
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Grip.Miyuki
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.<% name %>.<% materialCategory %>.Grip
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Metal/AxeGrip/metalAxe_grip_Miyuki.fbx
+        Name = Miyuki
+        behavior = InstancedItemBitBehavior
+    }
+}
+{
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Grip.Rhino
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.<% name %>.<% materialCategory %>.Grip
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Metal/AxeGrip/metalAxe_grip_Rhino.fbx
+        Name = Rhino
+        behavior = InstancedItemBitBehavior
+    }
+}
+
+// Handles
+{
+    abstract
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Handle
+    type InstancedItemBit
+    slot = <Oct.Items.Weapons.<% name %>.<% materialCategory %>.Slot.Handle>
+    inlays =
+    [
+        <Oct.Items.BitInlays.Base>
+    ]
+}
+{
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Handle.Hudson
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.<% name %>.<% materialCategory %>.Handle
+    substances =
+    [
+        {
+            id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Handle.Wood
+            type InstancedItemSubstance
+            inherit Oct.Items.Substances.Wood
+            chanceFrom = 100
+            chanceTo = 100
+            minQuality = .1
+        }
+    ]
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Metal/AxeHandle/metalAxe_handle_Hudson.fbx
+        Name = Hudson
+        behavior = InstancedItemBitBehavior
+    }
+}
+{
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Handle.Miyuki
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.<% name %>.<% materialCategory %>.Handle
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Metal/AxeHandle/metalAxe_handle_Miyuki.fbx
+        Name = Miyuki
+        behavior = InstancedItemBitBehavior
+    }
+}
+{
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Handle.Rhino
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.<% name %>.<% materialCategory %>.Handle
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Metal/AxeHandle/metalAxe_handle_Rhino.fbx
+        Name = Rhino
+        behavior = InstancedItemBitBehavior
+    }
+}
+
+// Heads
+{
+    abstract
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Head
+    type InstancedItemBit
+    slot = <Oct.Items.Weapons.<% name %>.<% materialCategory %>.Slot.Head>
+    inlays =
+    [
+        <Oct.Items.BitInlays.Square.PartialMoon>
+		<Oct.Items.BitInlays.Square.Quad>
+		<Oct.Items.BitInlays.Square.Spiral>
+		<Oct.Items.BitInlays.Square.TriFace>
+		<Oct.Items.BitInlays.Square.TriLine>
+		<Oct.Items.BitInlays.Square.TriLineStraight>
+		<Oct.Items.BitInlays.Square.TwinDiamond>
+		<Oct.Items.BitInlays.Square.Twist>
+		<Oct.Items.BitInlays.Square.X>
+    ]
+    materialVariants =
+    [
+        {
+            type InstancedItemBitMaterialVariant
+            variant = Edge
+            materials =
+            [
+                BladeEdge
+            ]
+        }
+    ]
+}
+{
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Head.Hudson
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.<% name %>.<% materialCategory %>.Head
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Metal/AxeHead/metalAxe_head_Hudson.fbx
+        Name = Hudson
+        behavior = InstancedItemBitBehavior
+    }
+}
+{
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Head.Miyuki
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.<% name %>.<% materialCategory %>.Head
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Metal/AxeHead/metalAxe_head_Miyuki.fbx
+        Name = Miyuki
+        behavior = InstancedItemBitBehavior
+    }
+}
+{
+    id Oct.Items.Weapons.<% name %>.<% materialCategory %>.Head.Rhino
+    type InstancedItemBit
+    inherit Oct.Items.Weapons.<% name %>.<% materialCategory %>.Head
+    prefab =
+    {
+        type Prefab
+        path = /Art/Items/Weapons/Axe/Metal/AxeHead/metalAxe_head_Rhino.fbx
+        Name = Rhino
+        behavior = InstancedItemBitBehavior
+    }
+}
+
+// <% material %> <% name %>
+{
+	id Oct.Items.Weapons.<% name %>.<% material %>
+	type WeaponItemType
+	inherit Oct.Items.Weapons.<% name %>
+    inherit Oct.Items.Weapons.<% material %>
+
+	name = <% material %> <% name %>
+    pluralName = <% material %> <% pluralName %>
+
+    buffScale = <% buffScale %>
+
+    substances =
+    [
+        <Oct.Items.Substances.<% material %>>
+    ]
+
+    bitSlots =
+    [
+        <Oct.Items.Weapons.<% name %>.<% materialCategory %>.Slot.Grip>
+        <Oct.Items.Weapons.<% name %>.<% materialCategory %>.Slot.Handle>
+        <Oct.Items.Weapons.<% name %>.<% materialCategory %>.Slot.Head>
+    ]
+
+    autonomousPerMember = 1
+
+	stats =
+	[
+		{
+			type InstancedItemStat
+			name = Damage
+			formula = QualityHalfDurability
+			min = 3
+			max = 12
+		}
+		{
+			type InstancedItemStat
+			name = Value
+			formula = QualityQualityHalfDurability
+			min = 6
+			max = 56
+		}
+	]
+
+    prefab =
+	{
+		type Prefab
+		path = /Art/Items/Stone/Axe/StoneAxe.fbx
+		name = <% material %> <% name %> Item
+        behavior = InstancedItemBehavior
+
+        material =
+        {
+            type Material
+            _Color = color(<% red %>, <% green %>, <% blue %>)
+        }
+	}
+
+	salvageAt = <Oct.Props.Foundry>
+	salvage =
+	[
+		{
+			type ExplicitItemSalvageComponent
+			itemType = <Oct.Items.Stackable.Copper>
+			count = 10
+		}
+	]
+}
+{
+	id Oct.Items.Recipes.<% name %>.<% material %>
+	type ItemRecipe
+
+	type = <Oct.Items.Weapons.<% name %>.<% material %>>
+	commandType = CraftItemCommand
+	progressMultiplier = .45
+	researchEntry = <Oct.Research.Smithing.<% name %>.<% material %>>
+	craftingLoop = <% craftingLoop %>
+	qualityDifficulty = 1.125
+    skillCurve = .675
+
+    craftAt =
+    [
+        <Oct.Props.Foundry>
+    ]
+
+	ingredients =
+	[
+		{
+			type ItemRecipeIngredient
+			filter = <Oct.Items.Stackable.Copper>
+			count = 15
+		}
+	]
+}
